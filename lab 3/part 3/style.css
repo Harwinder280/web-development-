@@ -1,57 +1,96 @@
-/* General setup */
-
-* {
-  box-sizing: border-box;
-  font-size: 10px;
-}
-
+/* General styles */
 body {
+  font-family: 'Times New Roman', serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+a {
+  color: #a52a2a;
+}
+
+/* Header styles */
+header {
+  background-color: #fff;
+  border-bottom: 2px solid #a52a2a;
+  padding: 20px 0;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+/* Main content layout */
+main {
+  display: flex;
+  max-width: 1000px;
   margin: 0 auto;
-  min-width: 1000px;
-  max-width: 1400px;
-}
-
-/* Layout */
-
-section {
-  float: left;
-  width: 50%;
-}
-
-aside {
-  float: left;
-  width: 30%;
-}
-
-nav {
-  float: left;
-  width: 20%;
-}
-
-footer {
-  clear: both;
-}
-
-header, section, aside, nav, footer {
   padding: 20px;
 }
 
-/* header and footer */
-
-header, footer {
-  border-top: 5px solid #a66;
-  border-bottom: 5px solid #a66;
+.main-content {
+  flex: 2;
+  margin-right: 20px;
 }
 
-/* WRITE YOUR CODE BELOW HERE */
-
-h1 {
-  font-size: 2.5rem;
-  text-align: center;
-  letter-spacing: 3px;
+aside {
+  flex: 1;
 }
 
+/* Headings */
 h2 {
-  font-size: 2.5em;
-  letter-spacing: 1.5px;
+  font-size: 1.8em;
+  border-bottom: 1px solid #a52a2a;
+  padding-bottom: 5px;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 20px;
+}
+
+aside ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+aside li {
+  margin-bottom: 5px;
+}
+
+/* Navigation */
+nav {
+  margin-top: 20px;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+nav li {
+  border: 1px solid #a52a2a;
+  margin-bottom: 5px;
+}
+
+nav a {
+  display: block;
+  padding: 5px 10px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: #a52a2a;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: #a52a2a;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
 }
