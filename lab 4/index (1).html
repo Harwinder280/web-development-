@@ -40,15 +40,59 @@
       <input id="customname" type="text" placeholder="" />
     </div>
     <div>
-      <label for="us">US</label
-      ><input id="us" type="radio" name="ukus" value="us" checked />
-      <label for="uk">UK</label
-      ><input id="uk" type="radio" name="ukus" value="uk" />
+      <label for="us">US</label>
+      <input id="us" type="radio" name="ukus" value="us" checked />
+      <label for="uk">UK</label>
+      <input id="uk" type="radio" name="ukus" value="uk" />
     </div>
     <div>
       <button class="randomize">Generate random story</button>
     </div>
-    <!-- Thanks a lot to Willy Aguirre for his help with the code for this assessment -->
     <p class="story"></p>
+
+    <script>
+      // JavaScript code for generating the story
+      const customName = document.getElementById("customname");
+      const randomize = document.querySelector(".randomize");
+      const story = document.querySelector(".story");
+
+      function randomValueFromArray(array) {
+        return array[Math.floor(Math.random() * array.length)];
+      }
+
+      const storyText =
+        "It was 94 fahrenheit outside, so :insertx: went for a walk. When they got to the soup kitchen, they stared in horror for a few moments, then turned into a slug and crawled away. :inserty: saw the whole thing, but was not surprised — :insertx: weighs 300 pounds, and it was a hot day.";
+
+      const insertX = ["Willy the Goblin", "Big Daddy", "Father Christmas"];
+      const insertY = ["Bob", "Santa Claus", "the Easter Bunny"];
+
+      randomize.addEventListener("click", generateStory);
+
+      function generateStory() {
+        let newStory = storyText;
+
+        const xItem = randomValueFromArray(insertX);
+        const yItem = randomValueFromArray(insertY);
+
+        newStory = newStory.replace(":insertx:", xItem);
+        newStory = newStory.replace(":insertx:", xItem); // Replace second occurrence
+        newStory = newStory.replace(":inserty:", yItem);
+
+        if (customName.value !== "") {
+          const name = customName.value;
+          newStory = newStory.replace("Bob", name);
+        }
+
+        if (document.getElementById("uk").checked) {
+          const weight = Math.round(300 * 0.0714286) + " stone";
+          const temperature = Math.round((94 - 32) * 5 / 9) + " centigrade";
+          newStory = newStory.replace("94 fahrenheit", temperature);
+          newStory = newStory.replace("300 pounds", weight);
+        }
+
+        story.textContent = newStory;
+        story.style.visibility = "visible";
+      }
+    </script>
   </body>
 </html>
